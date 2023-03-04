@@ -1,6 +1,6 @@
 # Init a github repo
 
-name: Repo init with main branch
+name: Repoini
 
 # Controls when the workflow will run
 on:

@@ -35,8 +35,9 @@ jobs:
       - name: Run a one-line script
         id: mainbranch
         if: failure()
-        run: echo Hello, branch main is not there!
-        run: echo "::set-output name=exis::false"
+        run: |
+          echo Hello, branch main is not there!
+          echo "::set-output name=exis::false"
       
       # Runs a test
       - name: Run a one-line script

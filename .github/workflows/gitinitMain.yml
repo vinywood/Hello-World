@@ -1,12 +1,16 @@
 # Init a github repo
 
-name: Repoini
+name: Init a repo with a new main branch
 
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+    inputs:
+      repotarget:
+        description: name of the repo to git init + create main branch
+        required: true
+        
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -20,14 +24,14 @@ jobs:
       - name: checkout remote repo to git init
         uses: actions/checkout@v3
         with:
-          repository: vinywood/repon2init
+          repository: vinywood/${{ inputs.repotarget }}
           ref: main
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        if: success() || failure()
+        if: failure()
         run: echo Hello, branch main is not there!
 
       # Runs a set of commands using the runners shell

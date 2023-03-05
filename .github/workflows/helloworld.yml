@@ -20,6 +20,11 @@ jobs:
         run: echo "test=hello" >> $GITHUB_OUTPUT
       - id: step2
         run: echo "test=world" >> $GITHUB_OUTPUT
+        
+    steps: afficher
+      - id: display
+        run: echo $output1 $output2
+        
   job2:
     runs-on: ubuntu-latest
     needs: job1

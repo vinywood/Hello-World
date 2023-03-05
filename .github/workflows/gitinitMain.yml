@@ -31,7 +31,7 @@ jobs:
       #  run: git ls-remote --exit-code --heads origin main
         
       # Runs a single command using the runners shell
-      - id: mainbranch
+      - name: mainbranch
         if: ${{ failure() }}
         run: |
           echo "MY_VAR=false" >> $GITHUB_ENV
@@ -41,7 +41,7 @@ jobs:
       # Runs a test
       - name: Run a test
         run: |
-          echo "MYVAR" is ${{ env.MY_VAR }}
+          echo "MYVAR" is "${{ env.MY_VAR }}"
           if [ "$MY_VAR" == "false" ]; then
             echo "MY_VAR is set to false"
           else

@@ -22,7 +22,7 @@ jobs:
         run: echo "test=world" >> $GITHUB_OUTPUT
         
       - name: afficher
-        run: echo ${{ output.output1 }} ${{ outputs.output2 }}
+        run: echo ${{ outputs.output1 }} ${{ outputs.output2 }}
         
   job2:
     runs-on: ubuntu-latest

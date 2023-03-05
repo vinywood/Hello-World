@@ -32,7 +32,7 @@ jobs:
         
       # Runs a single command using the runners shell
       - id: mainbranch
-        if: failure()
+        if: ${{ failure() }}
         run: |
           echo Hello, branch main is not there!
           echo "{exis}={false}" >> $GITHUB_OUTPUT

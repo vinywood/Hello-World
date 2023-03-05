@@ -34,22 +34,31 @@ jobs:
       - id: mainbranch
         if: ${{ failure() }}
         run: |
-          echo "{exis}={false}" >> $GITHUB_OUTPUT
+          echo "{MY_VAR}={false}" >> $GITHUB_ENV
           echo "Hello, branch main is not there!"
           
       
       # Runs a test
       - name: Run a test
-        if: ${{ steps.mainbranch.outputs.exis }} == false
-        run: echo Main branch n existe pas
+        run: |
+          echo "MYVAR" is $MY_VAR
+          if [ "$MY_VAR" == "false" ]; then
+            echo "MY_VAR is set to false"
+          else
+            echo "MY_VAR is set incorrectly"
+          fi
 
       - name: Add remote Git repository
-        if: ${{ steps.mainbranch.outputs.exis }} == false
-        run: echo Main branch n existe pas https://github.com/vinywood/${{ inputs.repotarget }}
+        run: |
+          if [ "$MY_VAR" != "false" ]; then
+            run: echo Main branch n existe pas https://github.com/vinywood/${{ inputs.repotarget }}
+          fi        
 
       - name: Git add and push
-        if: ${{ steps.mainbranch.outputs.exis }} == false
-        run: echo Main branch n existe pas https://github.com/vinywood/${{ inputs.repotarget }}
+        run: |
+          if [ "$MY_VAR" != "false" ]; then
+            run: echo Main branch n existe pas https://github.com/vinywood/${{ inputs.repotarget }}
+          fi        
     
       
         

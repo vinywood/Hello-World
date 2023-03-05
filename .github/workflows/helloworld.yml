@@ -25,9 +25,9 @@ jobs:
     needs: job1
     steps:
       - env:
-          OUTPUT1: {{ env.test1 }}
-          OUTPUT2: {{ env.test2 }}
-        run: echo "$OUTPUT1 $OUTPUT2"
+          OUTPUT1: test1 
+          OUTPUT2: test2
+          run: echo "$OUTPUT1 $OUTPUT2"
        
       - name: Run a test  
         run: |

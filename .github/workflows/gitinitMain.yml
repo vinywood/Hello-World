@@ -34,8 +34,9 @@ jobs:
       - id: mainbranch
         if: ${{ failure() }}
         run: |
-          echo Hello, branch main is not there!
           echo "{exis}={false}" >> $GITHUB_OUTPUT
+          echo "Hello, branch main is not there!"
+          
       
       # Runs a test
       - name: Run a test

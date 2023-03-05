@@ -21,8 +21,7 @@ jobs:
       - id: step2
         run: echo "test=world" >> $GITHUB_OUTPUT
         
-    steps: afficher
-      - id: display
+      - name: afficher
         run: echo $output1 $output2
         
   job2:

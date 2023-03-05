@@ -39,11 +39,11 @@ jobs:
       
       # Runs a test
       - name: Run a test
-        if: ${{ steps.mainbranch.outputs.exis }} == "false" 
+        if: ${{ steps.mainbranch.outputs.exis }} == false
         run: echo Main branch n existe pas
 
       - name: Add remote Git repository
-        if: ${{ steps.mainbranch.outputs.exis }} == "false" 
+        if: ${{ steps.mainbranch.outputs.exis }} == false
         run: echo Main branch n existe pas https://github.com/vinywood/${{ inputs.repotarget }}
 
       - name: Git add and push

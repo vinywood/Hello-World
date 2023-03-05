@@ -41,7 +41,7 @@ jobs:
       # Runs a test
       - name: Run a test
         run: |
-          echo "MYVAR" is $MY_VAR
+          echo "MYVAR" is ${{ env.MY_VAR }}
           if [ "$MY_VAR" == "false" ]; then
             echo "MY_VAR is set to false"
           else

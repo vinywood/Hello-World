@@ -34,7 +34,7 @@ jobs:
       - id: mainbranch
         if: ${{ failure() }}
         run: |
-          echo "{MY_VAR}={false}" >> $GITHUB_ENV
+          echo "MY_VAR=false" >> $GITHUB_ENV
           echo "Hello, branch main is not there!"
           
       

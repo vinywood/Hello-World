@@ -31,12 +31,15 @@ jobs:
       - env:
           OUTPUT1: ${{needs.job1.outputs.output1}}
           OUTPUT2: ${{needs.job1.outputs.output2}}
+          OUTPUT3: "toto"
         run: echo "$OUTPUT1 $OUTPUT2"
        
       - name: Run a test  
         run: |
           if [ "$OUTPUT1" == "hello" ]; then 
              echo "$OUTPUT1 est bien hello"
+             echo "$OUTPUT3"
           else
             echo "$OUTPUT1 n est pas  hello"
+            echo "$OUTPUT3"
           fi

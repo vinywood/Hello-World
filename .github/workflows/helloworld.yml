@@ -38,5 +38,5 @@ jobs:
           if [ "$OUTPUT1" == "hello" ]; then 
              echo "OUTPUT1 est bien hello"
           else
-            echo "OUTPUT1 n est pas  hello"
+            echo "$OUTPUT1 n est pas  hello"
           fi

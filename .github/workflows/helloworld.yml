@@ -36,7 +36,7 @@ jobs:
       - name: Run a test  
         run: |
           if [ "$OUTPUT1" == "hello" ]; then 
-             echo "OUTPUT1 est bien hello"
+             echo "$OUTPUT1 est bien hello"
           else
             echo "$OUTPUT1 n est pas  hello"
           fi

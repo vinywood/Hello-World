@@ -53,9 +53,9 @@ jobs:
       - name: mailx
         run:  |
           apt list --installed  |grep -i mailx
-          echo ok
-          if [ $? -ge 1 ]; then
-            echo mailx not installed
+          RC=$(apt list --installed  |grep -i mailx|grep installed |wc -l)
+          if [ $RC -eq 1 ]; then
+            echo mailx  installed
           else
             echo mailx not installed
           fi 

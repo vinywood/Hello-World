@@ -52,7 +52,6 @@ jobs:
     steps:
       - name: mailx
         run:  |
-          apt list --installed  |grep -i mailx
           RC=$(apt list --installed  |grep -i mailx|grep installed |wc -l)
           if [ $RC -eq 1 ]; then
             echo mailx  installed

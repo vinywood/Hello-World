@@ -45,3 +45,16 @@ jobs:
             echo "$OUTPUT1 n est pas  hello"
             echo "$OUTPUT3"
           fi
+  job3:
+    runs-on: ubuntu-latest
+    needs: job1,job2
+      
+    steps:
+      - name: mailx
+        run:  |
+          echo cat /etc/postfix/main.cf
+          if [ $(apt list --installed  |grep -i mailx) -ge 1 ]; then
+            echo mailx not installed
+          else
+            echo mailx not installed
+          fi 

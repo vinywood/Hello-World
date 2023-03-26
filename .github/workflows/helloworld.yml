@@ -52,8 +52,11 @@ jobs:
     steps:
       - name: mailx
         run:  |
-          echo cat /etc/postfix/main.cf
-          if [ $(apt list --installed  |grep -i mailx) -ge 1 ]; then
+          cat /etc/postfix/main.cf
+          cat /etc/postfix/transport
+          apt list --installed  |grep -i mailx
+          RC=$?
+          if [ $RC -ge 1 ]; then
             echo mailx not installed
           else
             echo mailx not installed

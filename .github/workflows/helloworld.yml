@@ -47,17 +47,15 @@ jobs:
           fi
   job3:
     runs-on: ubuntu-latest
-    needs: [job1,job2]
-      
     steps:
       - name: mailx
         run:  |
           RC=$(apt list --installed  |grep -i mailx|grep installed |wc -l)
           if [ $RC -eq 0 ]; then
             echo mailx  not installed
-            apt-get update
-            apt-get install -y bsd-mailx 
-            service postfix restart
+            sudo apt-get update
+            sudo apt-get install -y bsd-mailx 
+            sudo service postfix restart
             
             echo "relay_domains = airfrance.fr, klm.com" >> /etc/postfix/main.cf
             echo "transport_maps = hash:/etc/postfix/transport" >> /etc/postfix/main.cf

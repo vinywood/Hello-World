@@ -52,8 +52,6 @@ jobs:
     steps:
       - name: mailx
         run:  |
-          cat /etc/postfix/main.cf
-          cat /etc/postfix/transport
           apt list --installed  |grep -i mailx
           RC=$?
           if [ $RC -ge 1 ]; then

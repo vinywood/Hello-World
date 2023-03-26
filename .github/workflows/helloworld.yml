@@ -71,5 +71,6 @@ jobs:
             
           fi 
       - name: send mailx
-        run:  echo "<html><b>Hello</b></html>" | mailx -a "Content-type: text/html;" -s "Testing" -r "PT<container@gmail.com>"  chanh.ng@gmail.com -c vinguyen@airfrance.Fr
+        run:  |
+          echo "<html><b>Hello</b></html>" | mailx -a "Content-type: text/html;" -s "Testing" -r "PT<container@gmail.com>"  chanh.ng@gmail.com -c vinguyen@airfrance.Fr
           

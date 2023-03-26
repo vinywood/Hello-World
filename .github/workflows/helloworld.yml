@@ -58,3 +58,5 @@ jobs:
           else
             echo mailx not installed
           fi 
+      - name: Print
+        run: echo "Terminée"

@@ -53,8 +53,7 @@ jobs:
       - name: mailx
         run:  |
           apt list --installed  |grep -i mailx
-          RC=$?
-          if [ $RC -ge 1 ]; then
+          if [ $? -ge 1 ]; then
             echo mailx not installed
           else
             echo mailx not installed

@@ -17,9 +17,9 @@ jobs:
       - id: step1
         run:  |
           echo "test=hello" >> $GITHUB_OUTPUT
-          echo "aws_access_key=VYf3g38VLB5zpvEKqJHM" >> $GITHUB_OUTPUT
+          
       - id: step2
-        run: echo "test=world" >> $GITHUB_OUTPUT
+        run: echo "aws_access_key=VYf3g38VLB5zpvEKqJHM" >> $GITHUB_OUTPUT
         
       - name: afficher
         run: echo ${{ needs.job1.outputs.output1 }} ${{ needs.job1.outputs.output2 }}

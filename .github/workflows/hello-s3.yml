@@ -41,7 +41,7 @@ jobs:
           echo ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           
       - name: config AWs creds
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${OUTPUT1}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

@@ -1,0 +1,50 @@
+name: Hello vincent
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      output1: ${{ steps.step1.outputs.test}}
+      output2: ${{ steps.step2.outputs.test }}
+    steps:
+      - id: step1
+        run: echo "test=hello" >> $GITHUB_OUTPUT
+        run: echo "aws_access_key=VYf3g38VLB5zpvEKqJHM" >> $GITHUB_OUTPUT
+      - id: step2
+        run: echo "test=world" >> $GITHUB_OUTPUT
+        
+      - name: afficher
+        run: echo ${{ needs.job1.outputs.output1 }} ${{ needs.job1.outputs.output2 }}
+        
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    env:
+      OUTPUT1: ${{needs.job1.outputs.aws_access_key}}
+    # Map a step output to a job output
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: config AWs creds
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws_access_key_id: ${OUTPUT1}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          
+
+      - name: display
+        run:  |
+          cat /tmp/vincent.txt
+      - name: s3 config access
+        run:  |
+          ls -l
+          aws

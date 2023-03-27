@@ -15,8 +15,8 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}
     steps:
       - id: step1
-        run: echo "test=hello" >> $GITHUB_OUTPUT
-        run: echo "aws_access_key=VYf3g38VLB5zpvEKqJHM" >> $GITHUB_OUTPUT
+          echo "test=hello" >> $GITHUB_OUTPUT
+          echo "aws_access_key=VYf3g38VLB5zpvEKqJHM" >> $GITHUB_OUTPUT
       - id: step2
         run: echo "test=world" >> $GITHUB_OUTPUT
         

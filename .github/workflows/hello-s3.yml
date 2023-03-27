@@ -32,13 +32,13 @@ jobs:
     # Map a step output to a job output
     
     steps:
+      - name: afficher
+        run:  echo ${OUTPUT1} 
+
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: afficher
-        run:  |
-          echo ${OUTPUT1}
-          echo ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         
           
       - name: config AWs creds
         uses: aws-actions/configure-aws-credentials@v1
